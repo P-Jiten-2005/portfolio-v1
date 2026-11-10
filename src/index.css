@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The whole look of the site is set here. Colours are written as "R G B" so
+   Tailwind can add transparency (for example text-chalk/60). Swap these values
+   to re-skin every page at once. */
+:root {
+  --night: 13 13 13; /* page background */
+  --panel: 22 22 22; /* raised surfaces */
+  --chalk: 237 234 227; /* main text */
+  --mute: 139 135 127; /* secondary text */
+  --edge: 42 42 42; /* borders */
+  --accent: 255 181 71; /* highlight colour */
+  --card: 251 248 241; /* light paper */
+  --ink: 22 22 22; /* text on paper */
+  --red: 229 67 45;
+  --blue: 46 91 230;
+  --green: 24 160 94;
+
+  --font-sans: "Bricolage Grotesque";
+  --font-serif: "Instrument Serif";
+  --font-mono: "JetBrains Mono";
+  --font-hand: "Caveat";
+}
+
+body {
+  @apply bg-night text-chalk font-sans antialiased;
+}
+
+::selection {
+  @apply bg-accent text-night;
+}
+
+/* A visible ring for keyboard users on anything they can tab to. */
+:focus-visible {
+  @apply outline outline-2 outline-offset-4 outline-accent;
+}
+
+@layer components {
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em];
+  }
+  /* Letters drawn as an outline only; the tracker fills them in on lock. */
+  .hollow {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgb(var(--chalk) / 0.55);
+  }
+  .page {
+    @apply mx-auto w-full max-w-6xl px-5 md:px-10;
+  }
+}
+
+/* Visitors who ask their device for less motion get none from CSS.
+   Scripted animation checks the same setting in src/lib/useReducedMotion.ts. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

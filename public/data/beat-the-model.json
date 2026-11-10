@@ -1,0 +1,11 @@
+{
+  "placeholder": true,
+  "project": "placeholder",
+  "caseStudy": "/work/taris",
+  "labels": { "positive": "Hit", "negative": "Miss" },
+  "cases": [
+    { "id": "c01", "image": null, "prompt": "Sample case 1: hit or miss?", "truth": "positive", "model": "positive", "confidence": 0.91 },
+    { "id": "c02", "image": null, "prompt": "Sample case 2: hit or miss?", "truth": "negative", "model": "positive", "confidence": 0.58 },
+    { "id": "c03", "image": null, "prompt": "Sample case 3: hit or miss?", "truth": "negative", "model": "negative", "confidence": 0.87 }
+  ]
+}
